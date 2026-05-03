@@ -39,5 +39,5 @@ jobs:
       - name: save logs
         uses: actions/upload-artifact@v4
         with:
-          name: logs
+          name: build-log
           path: ../../sim/result.log
