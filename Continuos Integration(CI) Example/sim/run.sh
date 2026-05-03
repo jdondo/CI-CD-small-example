@@ -1,5 +1,5 @@
 #!/bin/bash
 
-iverilog -o sim.out ../rtl/adder.v ../tb/adder_tb.v
+iverilog -o sim.out ../RTL/adder.v ../tb/adder_tb.v
 vvp sim.out
-gtkwave adder_tb.vcd
+gtkwave adder_tb.vcd --script add_signals.tcl

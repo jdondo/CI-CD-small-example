@@ -1,0 +1,1 @@
+gtkwave::addSignal("adder_tb/a")

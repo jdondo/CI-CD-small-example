@@ -13,6 +13,10 @@ jobs:
     run: sudo apt-get install -y iverilog
     -name: Install GTKWAVE
     run: sudo apt install gtkwave
+    -name: Create add_signals.tcl for gtkwave
+    run: |
+      cd sim
+      code add_signals.tcl
     -name: Run simulation
     run: |
       cd sim
