@@ -26,7 +26,7 @@ reg signed [7:0] a;
         if (y!=sum) $fatal(0,"error 4");
         #10;
 
-        $display("a=%0d b=%0d sum=%0d", a, b, sum);
+        $display("a=%0d b=%0d sum=%0d", a, b, sum, y);
         $finish;
     end
 
