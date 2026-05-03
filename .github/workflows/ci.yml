@@ -37,7 +37,7 @@ jobs:
           chmod +x run.sh
           ./run.sh 
       - name: save logs
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: logs
-          path: result.log
+          path: ../../sim/result.log
