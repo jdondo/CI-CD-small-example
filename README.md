@@ -14,8 +14,11 @@ Show how continuous integration can be applied to hardware projects to:
 ## 🧱 Project Structure
 
 RTL/ -> Verilog design (adder 8bit)
+
 tb/  ->  Testbench
+
 sim/ -> Simularion Scripts
+
 .github/workflow/ -> CI pipeline
 
 ## ⚙️ Tools Used
