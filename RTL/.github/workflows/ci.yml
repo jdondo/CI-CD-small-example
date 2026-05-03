@@ -1,1 +1,21 @@
+YAML
+
+name: Hardware CI
+on: [push]
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+
+    steps:
+    -name: Checkout repo
+    uses: actions/checkout@v3
+    -name: Install Icarus Verilog
+    run: sudo apt-get install -y iverilog
+    -name: Install GTKWAVE
+    run: sudo apt install gtkwave
+    -name: Run simulation
+    run: |
+      cd sim
+      chmod +x run.sh
+      ./run.sh
 
