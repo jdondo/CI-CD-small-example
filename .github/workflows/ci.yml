@@ -36,3 +36,8 @@ jobs:
           cd sim
           chmod +x run.sh
           ./run.sh -> results.log
+      - name: save logs
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs
+          path: result.log
