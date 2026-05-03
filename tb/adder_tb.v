@@ -13,20 +13,20 @@ reg signed [7:0] a;
         $dumpfile("adder_tb.vcd");
         $dumpvars(0, adder_tb);
 
-        a = 8'sd0; b = 8'sd0; y=9'sd0;
-        if (y!=sum) $fatal(0,"error 1");
+        a = 8'sd0; b = 8'sd0; 
+        if (sum !=0) $fatal(0,"error 1");
         #10;
-        a = 8'sd15; b = 8'sd10; y=9'sd25;
-        if (y!=sum) $fatal(0,"error 2");
+        a = 8'sd15; b = 8'sd10; 
+        if (sum != 25) $fatal(0,"error 2");
         #10;
-        a = -8'sd20; b = 8'sd5; y=9'sd25;
-        if (y!=sum) $fatal(0,"error 3");
+        a = -8'sd20; b = 8'sd5; 
+        if (sum != 25) $fatal(0,"error 3");
         #10;
-        a = -8'sd100; b = -8'sd50; y=9'sd25;
-        if (y!=sum) $fatal(0,"error 4");
+        a = -8'sd100; b = -8'sd50; 
+        if (sum != 100) $fatal(0,"error 4");
         #10;
 
-        $display("a=%0d b=%0d sum=%0d", a, b, sum, y);
+        $display("a=%0d b=%0d sum=%0d", a, b, sum);
         $finish;
     end
 
