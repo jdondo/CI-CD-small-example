@@ -20,7 +20,7 @@ reg signed [7:0] a;
         if (sum != 25) $fatal(1,"error 2");
         #10;
         a = -8'sd20; b = 8'sd5; 
-        if (sum != 25) $fatal(1,"error 3");
+        if (sum != -3) $fatal(1,"error 3");
         #10;
         a = -8'sd100; b = -8'sd50; 
         if (sum != -100) $fatal(2,"error 4");
