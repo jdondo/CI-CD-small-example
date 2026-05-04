@@ -36,13 +36,9 @@ jobs:
           cd sim
           chmod +x run.sh
           ./run.sh 
-      - name: Check for errors
-        run: |
-          if [ exit code ==1 ]; then
-          echo "::error::This is my custom error message!"
-          exit 1
-          fi
-
+      - name: Report failure
+        if: failure()
+        run: echo "::error title=Build Failed::The tests failed. Please check the logs and fix the linting errors before pushing again."
       - name: save logs
         if: always()
         uses: actions/upload-artifact@v4
