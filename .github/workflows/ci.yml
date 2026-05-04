@@ -36,6 +36,11 @@ jobs:
         with:
           name: simulation-log
           path: results.log
+      - name: Paso que falla
+        run: |
+          # Comando que falla
+          npm test || (echo "::error::El paso de tests falló"; exit 1)
+          
   notify-failure:
     name: Show error message if job fails
     needs: simulate
