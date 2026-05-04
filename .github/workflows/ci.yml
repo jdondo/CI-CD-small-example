@@ -27,7 +27,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Install Icarus Verilog
-        run: sudo apt-get install -y iverilog
+        run: sudo apt-get update && sudo apt-get install -y iverilog
 
       # Runs a set of commands using the runners shell
 
@@ -40,17 +40,17 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: build-log
+          name: simulation-log
           path: results.log
-      - name: Remote Push
-        id: push_step
-        continue-on-error: true # Allow flow to continue to comment step
-        run: git push remote-repo main
-      - name: Comment on PR
-        if: steps.push_step.outcome == 'failure'
-        uses: marocchino/sticky-pull-request-comment@v2
-        with:
-         message: |
-          ### :x: Remote Push Failed
-          The push to the remote repository failed. Please check the [job logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}).
 
+notify-failure:
+    name: Show error message if job fails
+    needs: simulate
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Error in theworkflow
+        run: |
+          echo "ERROR: Simulation job failed in GitHub Actions."
+          echo "Check the logs and fix the issue before pushing again."
+          exit 1
