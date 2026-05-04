@@ -36,12 +36,16 @@ jobs:
           cd sim
           chmod +x run.sh
           ./run.sh 
-      - name: Report failure
-        if: failure()
-        run: echo "::error title=Build Failed::The tests failed. Please check the logs and fix the linting errors before pushing again."
       - name: save logs
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: build-log
           path: results.log
+      - name: Slack Notification
+        if: failure()
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_MESSAGE: 'The build for ${{ github.repository }} failed on branch ${{ github.ref_name }}.'
+          SLACK_COLOR: '#ff0000'
