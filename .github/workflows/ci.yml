@@ -31,13 +31,12 @@ jobs:
           chmod +x run.sh
           ./run.sh 
       - name: save logs
-        if: always()
+        if: failure()
         uses: actions/upload-artifact@v4
         with:
           name: simulation-log
           path: results.log
-      - name: Paso que falla
-        run: |
+       run: |
           # Comando que falla
            (echo "::error::El paso de tests falló"; exit 1)
           
