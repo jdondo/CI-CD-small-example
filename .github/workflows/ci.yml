@@ -42,10 +42,15 @@ jobs:
         with:
           name: build-log
           path: results.log
-      - name: Slack Notification
-        if: failure()
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_MESSAGE: 'The build for ${{ github.repository }} failed on branch ${{ github.ref_name }}.'
-          SLACK_COLOR: '#ff0000'
+      - name: Remote Push
+        id: push_step
+        continue-on-error: true # Allow flow to continue to comment step
+        run: git push remote-repo main
+      - name: Comment on PR
+        if: steps.push_step.outcome == 'failure'
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+         message: |
+          ### :x: Remote Push Failed
+          The push to the remote repository failed. Please check the [job logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}).
+
