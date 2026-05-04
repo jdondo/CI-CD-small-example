@@ -23,7 +23,11 @@ reg signed [7:0] a;
         if (sum != -15) $fatal(1,"error 3");
         #10;
         a = -8'sd100; b = -8'sd50; 
+<<<<<<< HEAD
         if (sum != -150) $fatal(2,"error 4");
+=======
+        if (sum != -120) $fatal(2,"error 4");
+>>>>>>> 194af48 (new adder_tb)
         #10;
 
         $display("a=%0d b=%0d sum=%0d", a, b, sum);
