@@ -39,7 +39,7 @@ jobs:
       - name: Paso que falla
         run: |
           # Comando que falla
-          simulate || (echo "::error::El paso de tests falló"; exit 1)
+           (echo "::error::El paso de tests falló"; exit 1)
           
   notify-failure:
     name: Show error message if job fails
