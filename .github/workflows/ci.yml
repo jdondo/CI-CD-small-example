@@ -37,6 +37,7 @@ jobs:
           chmod +x run.sh
           ./run.sh 
       - name: save logs
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: build-log
