@@ -38,7 +38,8 @@ jobs:
           path: results.log
        run: |
           # Comando que falla
-           (echo "::error::El paso de tests falló"; exit 1)
+           echo "::error::El paso de tests falló"; exit 1
+           fi
           
   notify-failure:
     name: Show error message if job fails
