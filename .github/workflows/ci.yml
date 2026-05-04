@@ -32,15 +32,15 @@ steps:
         uses: actions/upload-artifact@v4
         with:
           name: simulation-log
-        path: results.log
-        notify-failure:
-        name: Show error message if job fails
-        needs: simulate
-        if: failure()
-        runs-on: ubuntu-latest
-        steps:
-      - name: Error in theworkflow
-        run: |
-          echo "ERROR: Simulation job failed in GitHub Actions."
-          echo "Check the logs and fix the issue before pushing again."
-          exit 1
+          path: results.log
+  notify-failure:
+   name: Show error message if job fails
+   needs: simulate
+   if: failure()
+   runs-on: ubuntu-latest
+   steps:
+   - name: Error in theworkflow
+   run: |
+     echo "ERROR: Simulation job failed in GitHub Actions."
+     echo "Check the logs and fix the issue before pushing again."
+     exit 1
