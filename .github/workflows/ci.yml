@@ -38,7 +38,7 @@ jobs:
           ./run.sh 
       - name: Check for errors
         run: |
-          if [ error ]; then
+          if [ exit code ==1 ]; then
           echo "::error::This is my custom error message!"
           exit 1
           fi
