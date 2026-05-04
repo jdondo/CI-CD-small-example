@@ -17,13 +17,13 @@ reg signed [7:0] a;
         if (sum !=0) $fatal(0,"error 1");
         #10;
         a = 8'sd15; b = 8'sd10; 
-        if (sum != 25) $fatal(0,"error 2");
+        if (sum != 25) $fatal(1,"error 2");
         #10;
         a = -8'sd20; b = 8'sd5; 
-        if (sum != 25) $fatal(0,"error 3");
+        if (sum != 25) $fatal(1,"error 3");
         #10;
         a = -8'sd100; b = -8'sd50; 
-        if (sum != -120) $fatal(0,"error 4");
+        if (sum != -120) $fatal(2,"error 4");
         #10;
 
         $display("a=%0d b=%0d sum=%0d", a, b, sum);
