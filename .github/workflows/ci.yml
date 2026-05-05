@@ -28,6 +28,11 @@ jobs:
           chmod +x run.sh
           ./run.sh > simulation.log 2>&1
         continue-on-error: true
+      - name: subir log
+        uses: actions/upload-artifact@v4
+        with:
+          name: simulation-log
+          path: simulation.log
       - name: check simulation result
         if: failure()
         run: |
