@@ -26,7 +26,7 @@ jobs:
         run: |
           cd sim
           chmod +x run.sh
-          ./run.sh > simulation.log 2>&1
+          ./run.sh > simulation.log 
         continue-on-error: true
       - name: subir log
         uses: actions/upload-artifact@v4
