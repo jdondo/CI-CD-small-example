@@ -26,7 +26,7 @@ jobs:
         run: |
           cd sim
           chmod +x run.sh
-          ./run.sh
+          ./run.sh > simulation.log 2>&1
         continue-on-error: true
       - name: check simulation result
         if: failure()
