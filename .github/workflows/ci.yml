@@ -32,8 +32,4 @@ jobs:
         with:
           name: simulation-log
           path: simulation.log
-      - name: check simulation result
-        if: failure()
-        run: |
-          echo: "ERROR: please fix the error and push again"
-          exit 1 
+        
