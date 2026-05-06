@@ -22,15 +22,15 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Crear artefacto
-        run: mkdir sim/test_results && echo "contenido" > test_results/simulation.log
+        run: mkdir test_results && echo "contenido" > test_results/simulation.log
       - name: Run simulation
         run: |
           cd sim
           chmod +x run.sh
           ./run.sh > test_results/simulation.log 2>&1
       - name: upload log
-        uses: actions/upload-artifact@v4
         if: always()
+        uses: actions/upload-artifact@v4
         with:
           name: simulation-log
           path: test_results/simulation.log
