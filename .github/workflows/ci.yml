@@ -33,5 +33,5 @@ jobs:
         if: always()
         with:
           name: simulation-log
-          path: test_result/result.log
+          path: test_results/simulation.log
         
