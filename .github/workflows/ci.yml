@@ -27,7 +27,7 @@ jobs:
           cd sim
           chmod +x run.sh
           ./run.sh >> simulation.log 
-      - name: subir log
+      - name: upload log
         uses: actions/upload-artifact@v4
         with:
           name: simulation-log
