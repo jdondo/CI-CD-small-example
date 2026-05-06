@@ -22,7 +22,7 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Crear artefacto
-        run: mkdir test_results && echo "contenido" > test_results/simulation.log
+        run: mkdir sim/test_results && echo "contenido" > test_results/simulation.log
       - name: Run simulation
         run: |
           cd sim
