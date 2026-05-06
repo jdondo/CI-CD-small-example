@@ -26,10 +26,11 @@ jobs:
         run: |
           cd sim
           chmod +x run.sh
-          ./run.sh
+          ./run.sh > simulation.log 2>&1
       - name: upload log
         uses: actions/upload-artifact@v4
+        if: always()
         with:
           name: simulation-log
-          path: simulation.log
+          path: test_results/simulation.log
         
