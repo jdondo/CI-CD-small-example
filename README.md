@@ -31,7 +31,7 @@ On every push:
 1. Code is checked out
 2. Simulator is installed
 3. Testbench is executed
-4. Results determine pass/fail
+4. Results determine pass/fail (log file saved as artifact)
 
 ## 🧪 Test Cases
 - Basic additions
